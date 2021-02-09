@@ -1,15 +1,16 @@
 package com.interview.cos;
 
+import java.util.Date;
 import java.util.List;
 
 public class Event implements Comparable {
     private final String eventName;
     private final String cityName;
     private final int edition;
-    private final String date;
+    private final Date date;
     private final List<String> guestList;
 
-    public Event(String eventName, String cityName, int edition, String date, List<String> guestList) {
+    public Event(String eventName, String cityName, int edition, Date date, List<String> guestList) {
         this.eventName = eventName;
         this.cityName = cityName;
         this.edition = edition;
@@ -29,17 +30,17 @@ public class Event implements Comparable {
         return this.edition;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return this.date;
     }
 
     @Override
     public int compareTo(Object o) {
         Event otherEvent = (Event) o;
-        if(this.getEventName().equals(otherEvent.getEventName())) {
-            if(this.getCityName().equals(otherEvent.getCityName())) {
-                if(this.getEdition() == otherEvent.getEdition()) {
-                    if(this.getDate().equals(otherEvent.getDate())) {
+        if (this.getEventName().equals(otherEvent.getEventName())) {
+            if (this.getCityName().equals(otherEvent.getCityName())) {
+                if (this.getEdition() == otherEvent.getEdition()) {
+                    if (this.getDate().equals(otherEvent.getDate())) {
                         return 0;
                     }
                 }
