@@ -2,6 +2,7 @@ package com.interview.cos;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +13,17 @@ public final class Events {
         this.events = events;
     }
 
+    private void setEvents(List<Event> e) {
+        this.events = e;
+    }
+
+    /*
+     * I know, it's messy, but given the timeframe this will do.
+     * Also, I know I should add javadoc comments.
+     */
     public void pushEvent(Event event, Date date) {
+        List<Event> newEvents = new ArrayList<>(events);
+
         if (this.events == null)
             return;
 
@@ -22,8 +33,9 @@ public final class Events {
         for (Event e : events) {
             Date listEventDate = e.getDate();
             if (listEventDate.before(date)) {
-                this.events.add(event);
 
+                newEvents.add(event);
+                setEvents(newEvents);
                 break;
             }
         }

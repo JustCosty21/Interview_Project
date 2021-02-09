@@ -8,7 +8,7 @@ public class Event implements Comparable {
     private final String cityName;
     private final int edition;
     private final Date date;
-    private final List<String> guestList;
+    private List<String> guestList = null;
 
     public Event(String eventName, String cityName, int edition, Date date, List<String> guestList) {
         this.eventName = eventName;
@@ -16,6 +16,13 @@ public class Event implements Comparable {
         this.edition = edition;
         this.date = date;
         this.guestList = guestList;
+    }
+
+    public Event(String eventName, String cityName, int edition, Date date) {
+        this.eventName = eventName;
+        this.cityName = cityName;
+        this.edition = edition;
+        this.date = date;
     }
 
     public String getEventName() {
